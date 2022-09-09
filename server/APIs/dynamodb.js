@@ -2,7 +2,6 @@
 // https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.UpdateItem.html
 // https://stackoverflow.com/questions/41915438/node-js-aws-dynamodb-updateitem
 
-require("dotenv").config();
 const AWS = require("aws-sdk");
 
 // Set the region
@@ -57,8 +56,7 @@ async function readCounter() {
   let data;
   const tableExist = await checkTableExists();
   if (!tableExist) {
-    console.log("Table does not exist");
-    return { statusCode: 404, message: "Table does not exist" };
+    return { statusCode: 404, message: "Table not found or bad key." };
   } else {
     try {
       data = await docClient.get(params).promise();
