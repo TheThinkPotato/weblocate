@@ -3,6 +3,7 @@
 // By Daniel Lopez - Student ID: n10956611
 // Code has been adapted from the Web Computing Units at QUT CAB230 and CAB432
 
+const path = require('path')
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
@@ -33,13 +34,14 @@ app.get("/api", (req, res) => {
 app.use("/search", search);
 app.use("/counter", views);
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {  
+  res.status(404).send('Error 404 page or route not found.');
+});
+
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 })
-
-// app.use("*", function (req, res, next) {
-//   res.status(404).json({ error: true, message: "Not Found" });
-// });
 
 app.listen(port, function () {
   console.log(`Express app listening at http://${hostname}:${port}/`);

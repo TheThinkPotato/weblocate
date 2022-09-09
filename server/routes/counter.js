@@ -2,7 +2,7 @@
 
 const express = require("express");
 const logger = require("morgan");
-const counters = require("../APIs/dynamodb");
+const counters = require("../apis/dynamodb");
 
 const router = express.Router();
 router.use(logger("tiny"));

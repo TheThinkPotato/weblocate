@@ -1,10 +1,10 @@
 // This function handles all of the API calls for the Search route
 
-const ipInfoAPI = require("../APIs/ipinfo");
-const localTimeAPI = require("../APIs/localtime");
-const orbIntelAPI = require("../APIs/orbintel");
-const exerraAPI = require("../APIs/exerra");
-const apisNinjasDNS = require("../APIs/apininjasdns.JS");
+const ipInfoAPI = require("../apis/ipinfo");
+const localTimeAPI = require("../apis/localtime");
+const orbIntelAPI = require("../apis/orbintel");
+const exerraAPI = require("../apis/exerra");
+const apisNinjasDNS = require("../apis/apininjasdns.js");
 
 // Search for ip details
 async function search(ip, domain) {
