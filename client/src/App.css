@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+/* 
+body {
+  background: 0e1422;
+  background-image: url("../public/images/background.jpg");
+  background-repeat: no-repeat;
+  background-color: green;
+} */
+
+.img-aside {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  margin-bottom: 3rem;
+}
+
+.side-bar-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+}
+
+.aside {
+  padding: 20px;
+  display: block;
+  height: 950px;
+  max-width: 300px;
+  border: #000 3px solid;
+  color: white;
+  background-color: #0e67b4;
+  float: left;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+input {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  height: 1.5rem;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: #0b253c;
+  margin: 0.4rem;
+}
+
+.box-border {
+  border: 1px solid #555;
+  /* border-radius: 5px; */
+  box-shadow: 2px 3px rgba(64, 64, 64, 0.4);
+}
+
+.main-window {
+  /* display: flex; */
+  /* margin: auto; */
+  /* align-items: center; */
+  height: 100%;
+  /* margin-top: 5rem; */
+  /* margin-inline: auto; */
+  /* padding-top: 2rem; */
+  /* width: fit-content; */
+  /* height: fit-content; */
+}
+
+.box-window {
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  /* height: fit-content; */
+  height: 990px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.box-info {
+  /* display: flex; */
+  flex-direction: column;
+  background-color: #eee;
+  align-items: center;
+  width: fit-content;
+  height: 28rem;
+  width: 850px;
+  margin: 2rem;
+}
+
+.box-info h2 {
+  text-align: center !important;
+}
+
+.box-info p {
+  margin-left: 1rem;
+}
+
+.working-window {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding-top: 2rem;
+  width: fit-content;
+  height: 100%;
+  padding-block: 2rem;
+  padding-inline: 2rem;
+}
+
+.Button {
+  display: inline;
+  padding: 20px;
+}
+
+table {
+  margin-block: 2rem;
+  padding: 1rem;
+  border: #000 2px solid;
+  width: 100%;
+  background-color: white;
+}
+
+.info-table {
+  margin-left: 2rem;
+  width: 360px;
+}
+
+.business-table {
+  margin-left: 1rem;
+  margin-right: 2rem;
+  width: 470px;
+}
+
+.info-sub-heading {
+  text-align: center;
+}
+
+.info-heading {
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.info-heading p {
+  text-align: center;
+}
+
+table h3 {
+  padding-bottom: 1rem;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  /* width: fit-content; */
+  /* width: 100%; */
+  /* height: fit-content; */
+}
+
+.info-scam-message {
+  text-align: center;
+  margin: auto;
+  padding-block: 1rem;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  /* width: 200px; */
+  width: fit-content;
+  /* height: fit-content;   */
+  color: white;
+}
+
+.button-container {
+  width: 100%;  
+}
+
+.button-text{
+  font-size: 18px;
+}
+
+.spinner{
+  position: relative;
+  bottom: 1.4rem;
+  float:right;  
+}
+
+.counter{     
+  padding-top: 26.5rem;
+  text-align: center;
+  bottom: 0rem;  
+}
