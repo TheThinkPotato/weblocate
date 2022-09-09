@@ -16,13 +16,11 @@ COPY server server
 
 #Install client dependencies and build
 WORKDIR /client
-RUN ls
 RUN npm install
 RUN npm run build
 
 #Install server dependencies
 WORKDIR /server
-RUN ls
 RUN npm install
 
 
@@ -31,4 +29,4 @@ EXPOSE 3000
 
 # Start the app
 # CMD ["node","app.js"]
-CMD ["ls"]
+CMD ["node", "app"]

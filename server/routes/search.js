@@ -7,7 +7,7 @@ router.use(logger("tiny"));
 
 const ipCheck = require("../functions/ip");
 const apiCalls = require("../functions/apicalls");
-const domainCheck = require("../functions/domainCheck");
+const domainCheck = require("../functions/domaincheck");
 
 // Ip Search Route
 router.get("/ip/:ip", async (req, res, next) => {
