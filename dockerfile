@@ -1,4 +1,3 @@
-# FROM node:erbium-alpine
 FROM ubuntu
 
 # Set basic AWS credentials and API Key variables
@@ -18,11 +17,9 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 
 #Add Client
-# ADD client client
 COPY client client
 
 #Add Server
-# ADD server server
 COPY server server
 
 #Install client dependencies and build
@@ -34,10 +31,9 @@ RUN npm run build
 WORKDIR /server
 RUN npm install
 
-
 # Expose app port to the outside
 EXPOSE 3000
 
 # Start the app
-# CMD ["node","app.js"]
-CMD ["node", "app"]
+CMD ["node","app.js"]
+

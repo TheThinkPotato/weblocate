@@ -36,7 +36,7 @@ app.use("/counter", views);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {  
-  res.status(404).send('Error 404 page or route not found.');
+  res.status(404).json({message:'Error can not find address.'});
 });
 
 app.use((req, res) => {

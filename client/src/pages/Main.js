@@ -13,22 +13,49 @@ import { searchDNS, searchIP, updateCounter } from "../data/apiCalls";
 export default function Main() {
   const [keynum, setKeynum] = useState(0);
   const [data, setData] = useState();
-  const [ipAddress, setIpAddress] = useState("8.8.8.8");
-  const [dnsAddress, setDnsAddress] = useState("www.google.com");
+  const [dnsAddress, setDnsAddress] = useState("");
+  const [ipAddress, setIpAddress] = useState("");
   const [isLoadingDomain, setIsLoadingDomain] = useState(false);
   const [isLoadingIP, setIsLoadingIP] = useState(false);
   const [pageCounter, setPageCounter] = useState("...");
 
+  const domainCleanUp = (searchAddress) => {
+    // if searchAddress https:// remove it ...
+    if (searchAddress.includes("https://")) {
+      searchAddress = searchAddress.replace("https://", "");
+    }
+    if (searchAddress.includes("http://")) {
+      searchAddress = searchAddress.replace("http://", "");
+    }
+    if (searchAddress.includes("ftp://")) {
+      searchAddress = searchAddress.replace("ftp://", "");
+    }
+    // if searchAddress has a / split it and take the first part
+    if (searchAddress.includes("/")) {
+      searchAddress = searchAddress.split("/")[0];
+    }
+    // if searchAddress has a : split it and take the first part
+    if (searchAddress.includes(":")) {
+      searchAddress = searchAddress.split(":")[0];
+    }
+
+    return searchAddress;
+  };
+
   const handleFetch = (type) => {
     if (type === "domain") {
+      const searchAddress = domainCleanUp(dnsAddress);
+      setDnsAddress(searchAddress);
       setIsLoadingDomain(true);
-      searchDNS(dnsAddress).then((resp) => {
+      searchDNS(searchAddress).then((resp) => {
         setData(resp.data);
         setIsLoadingDomain(false);
       });
     } else {
+      const searchAddress = domainCleanUp(ipAddress);
+      setIpAddress(searchAddress);
       setIsLoadingIP(true);
-      searchIP(ipAddress).then((resp) => {
+      searchIP(searchAddress).then((resp) => {
         setData(resp.data);
         setIsLoadingIP(false);
       });
