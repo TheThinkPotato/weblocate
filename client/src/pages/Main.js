@@ -19,7 +19,7 @@ export default function Main() {
   const [isLoadingIP, setIsLoadingIP] = useState(false);
   const [pageCounter, setPageCounter] = useState("...");
 
-  const domainCleanUp = (searchAddress) => {
+  const inputCleanUp = (searchAddress) => {
     // if searchAddress https:// remove it ...
     if (searchAddress.includes("https://")) {
       searchAddress = searchAddress.replace("https://", "");
@@ -44,7 +44,7 @@ export default function Main() {
 
   const handleFetch = (type) => {
     if (type === "domain") {
-      const searchAddress = domainCleanUp(dnsAddress);
+      const searchAddress = inputCleanUp(dnsAddress);
       setDnsAddress(searchAddress);
       setIsLoadingDomain(true);
       searchDNS(searchAddress).then((resp) => {
@@ -52,7 +52,7 @@ export default function Main() {
         setIsLoadingDomain(false);
       });
     } else {
-      const searchAddress = domainCleanUp(ipAddress);
+      const searchAddress = inputCleanUp(ipAddress);
       setIpAddress(searchAddress);
       setIsLoadingIP(true);
       searchIP(searchAddress).then((resp) => {
@@ -70,8 +70,6 @@ export default function Main() {
 
   useEffect(() => {
     updateCounter().then((resp) => {
-      // setPageCounter(updateCounter)
-      // console.log("-----IN----");
       setPageCounter(resp.data.pageviews);
     });
   }, []);
