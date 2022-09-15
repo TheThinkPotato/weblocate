@@ -46,19 +46,25 @@ export default function Main() {
     if (type === "domain") {
       const searchAddress = inputCleanUp(dnsAddress);
       setDnsAddress(searchAddress);
-      setIsLoadingDomain(true);
-      searchDNS(searchAddress).then((resp) => {
-        setData(resp.data);
-        setIsLoadingDomain(false);
-      });
+      //check if field is not empty to start seach
+      if (searchAddress !== "") {
+        setIsLoadingDomain(true);
+        searchDNS(searchAddress).then((resp) => {
+          setData(resp.data);
+          setIsLoadingDomain(false);
+        });
+      }
     } else {
       const searchAddress = inputCleanUp(ipAddress);
       setIpAddress(searchAddress);
-      setIsLoadingIP(true);
-      searchIP(searchAddress).then((resp) => {
-        setData(resp.data);
-        setIsLoadingIP(false);
-      });
+      //check if field is not empty to start seach
+      if (searchAddress !== "") {
+        setIsLoadingIP(true);
+        searchIP(searchAddress).then((resp) => {
+          setData(resp.data);
+          setIsLoadingIP(false);
+        });
+      }
     }
   };
 
