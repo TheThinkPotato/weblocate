@@ -20,6 +20,10 @@ export default function Main() {
   const [pageCounter, setPageCounter] = useState("...");
 
   const inputCleanUp = (searchAddress) => {
+    //if any spaces in seachAddress, remove them
+    if (searchAddress.includes(" ")) {
+      searchAddress = searchAddress.replace(/\s/g, "");
+    }
     // if searchAddress https:// remove it ...
     if (searchAddress.includes("https://")) {
       searchAddress = searchAddress.replace("https://", "");
