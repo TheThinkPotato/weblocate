@@ -27,7 +27,7 @@ async function ipInfo(ip) {
     const response = await axios.get(url, {
       headers: APIheader,
       params: APIparams,
-      timeout: 20000,
+      timeout: 20000,      
     });
     return response.data;
   } catch (error) {
