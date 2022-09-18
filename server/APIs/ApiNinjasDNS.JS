@@ -29,6 +29,7 @@ async function ApiNinjasDNS(domain) {
     const response = await axios.get(url, {
       headers: APIheader,
       params: APIparams,
+      timeout: 20000,
     });
     console.log("res:", response);
     if (response.status !== 200) {

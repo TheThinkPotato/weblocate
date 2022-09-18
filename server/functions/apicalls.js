@@ -42,15 +42,21 @@ async function search(ip, domain) {
     } catch (error) {
       return { error: true, message: "Error getting data from exerra API." };
     }
-
-    return {
-      search: { searchIP: ip, searchDomain: domain },
-      ipGeoInfo,
-      businessInfo,
-      localTime,
-      phishingCheck,
-      error: false,
-    };
+    if (localTime.error || businessInfo.error || phishingCheck.error) {
+      return {
+        error: true,
+        message: "Error getting data from APIs.",
+      };
+    } else {
+      return {
+        search: { searchIP: ip, searchDomain: domain },
+        ipGeoInfo,
+        businessInfo,
+        localTime,
+        phishingCheck,
+        error: false,
+      };
+    }
   }
 }
 

@@ -1,18 +1,21 @@
-// API Documentation http://worldtimeapi.org/pages/examples
+// API Documentation https://www.abstractapi.com/api/time-date-timezone-api#docs
 
 const axios = require("axios");
+require("dotenv").config();
 
 const APIheader = {};
 
-const APIparams = {};
+const APIparams = {api_key: process.env.API_TIMEZONE_KEY, location:""};
 
 function createLocalTimeOptions(timezone) {
   const options = {
-    hostname: "worldtimeapi.org",
+    hostname: "timezone.abstractapi.com",
     port: 443,
-    path: `/api/timezone/${timezone}`,
+    path: `/v1/current_time`,
     method: "GET",
-  };
+  };  
+  timezone = timezone.replace(/\//g, ",");
+  APIparams.location = timezone;  
   return options;
 }
 
@@ -24,8 +27,10 @@ async function getLocalTime(timezone) {
     const response = await axios.get(url, {
       headers: APIheader,
       params: APIparams,
+      timeout: 20000,
     });
-    return { datetime: response.data.datetime };
+    const returnData = response.data.datetime.replace(" ", "T");    
+    return { datetime: returnData };
   } catch (error) {
     return {
       error: true,
