@@ -31,6 +31,7 @@ async function businessDetails(country, business) {
     const response = await axios.get(url, {
       headers: APIheader,
       params: APIparams,
+      timeout: 20000,
     });
     if (response.data.results.length > 0) {
       return {

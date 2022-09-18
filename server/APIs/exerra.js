@@ -29,6 +29,7 @@ async function getLocalTime(domain) {
     const response = await axios.get(url, {
       headers: APIheader,
       params: APIparams,
+      timeout: 20000,
     });
     return { isScam: response.data.isScam };
   } catch (error) {
