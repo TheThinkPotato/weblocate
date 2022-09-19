@@ -4,11 +4,6 @@
     <title>WebLocate API</title>
   </head>
   <body>
-    <script>
-      const PORT = ":80";
-      const URL = "http://127.0.0.1";
-      const ADDRESS = `${URL}${PORT}`;
-    </script>
     <header>
       <h1>WebLocate API</h1>
       <p>
@@ -32,52 +27,11 @@
     <section>
       <h2>API Examples</h2>
       <ul>
-        <li>
-          Domain Search Example:
-          <a
-            href="#"
-            target="popup"
-            onclick="window.open(`${ADDRESS}/search/domain/www.google.com`,'popup','width=600,height=600'); return false;"
-            >/search/domain/www.google.com</a
-          >
-        </li>
-        <li>
-          Email Domain Search Example:
-          <a
-            href="#"
-            target="popup"
-            onclick="window.open(`${ADDRESS}/search/domain/someone@outlook.com`,'popup','width=600,height=600'); return false;"
-            >/search/domain/someone@outlook.com</a
-          >
-        </li>
-        <li>
-          IP Search Example:
-          <a
-            href="#"
-            target="popup"
-            onclick="window.open(`${ADDRESS}/search/ip/8.8.8.8`,'popup','width=600,height=600'); return false;"
-            >/search/ip/8.8.8.8</a
-          >
-        </li>
-        <li>
-          Counter Display Example:
-          <a
-            href="#"
-            target="popup"
-            onclick="window.open(`${ADDRESS}/counter/read`,'popup','width=600,height=600'); return false;"
-          >
-            /counter/read</a
-          >
-        </li>
-        <li>
-          Counter Update Example:
-          <a
-            href="#"
-            target="popup"
-            onclick="window.open(`${ADDRESS}/counter/update`,'popup','width=600,height=600'); return false;"
-            >/counter/update</a
-          >
-        </li>
+        <li>Domain Search Example: /search/domain/www.google.com</li>
+        <li>Email Domain Search Example: /search/domain/someone@outlook.com</li>
+        <li>IP Search Example: /search/ip/8.8.8.8</li>
+        <li>Counter Display Example: /counter/read</li>
+        <li>Counter Update Example: /counter/update</li>
       </ul>
     </section>
   </body>
