@@ -42,7 +42,7 @@ async function search(ip, domain) {
     } catch (error) {
       return { error: true, message: "Error getting data from exerra API." };
     }
-    if (localTime.error || businessInfo.error || phishingCheck.error) {
+    if (localTime.error || businessInfo.error || phishingCheck.error || ipGeoInfo.error) {
       return {
         error: true,
         message: "Error getting data from APIs.",

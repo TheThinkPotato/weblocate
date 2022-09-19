@@ -10,6 +10,7 @@ ENV API_NINJAS_KEY xx
 ENV API_IPINFO_KEY xx
 ENV API_EXERRA_KEY xx
 ENV API_ORBINTEL_KEY xx
+ENV API_TIMEZONE_KEY xx
 
 # Install dependencies
 RUN apt-get update && apt-get install -y curl
