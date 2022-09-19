@@ -47,12 +47,17 @@ router.get("/domain/:domain", async (req, res, next) => {
 
   //if domain contains @ then remove it
   domain = domainCheck.emailCheck(domain);
-
   const ip = await apiCalls.getIP(domain);
   if (ip.error) {
     res.status(ip.status).json({ error: ip.error, message: ip.message });
     return;
   }
+
+  //Check if ip has been returned, report error if not.
+  if(!ipCheck.checkIfIp(ip)) {    
+  return res.status(400).json({error: true, message: "No Domain Found or Invalid Domain."});
+  }
+
   result = await apiCalls.search(ip, domain);
   if (result.error) {
     res.status(400).json({
