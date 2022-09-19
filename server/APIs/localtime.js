@@ -7,20 +7,20 @@ const APIheader = {};
 
 const APIparams = {api_key: process.env.API_TIMEZONE_KEY, location:""};
 
-function createLocalTimeOptions(timezone) {
+function createLocalTimeOptions(country,city) {
   const options = {
     hostname: "timezone.abstractapi.com",
     port: 443,
     path: `/v1/current_time`,
     method: "GET",
   };  
-  timezone = timezone.replace(/\//g, ",");
-  APIparams.location = timezone;  
+  // timezone = timezone.replace(/\//g, ",");
+  APIparams.location = city + "," + country;    
   return options;
 }
 
-async function getLocalTime(timezone) {
-  const options = createLocalTimeOptions(timezone);
+async function getLocalTime(country,city) {    
+  const options = createLocalTimeOptions(country,city);
   const url = `https://${options.hostname}${options.path}`;
 
   try {

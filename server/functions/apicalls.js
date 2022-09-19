@@ -20,7 +20,7 @@ async function search(ip, domain) {
 
   if (ipGeoInfo.bogon !== true) {
     try {
-      localTime = await localTimeAPI(ipGeoInfo.timezone);
+      localTime = await localTimeAPI(ipGeoInfo.city,ipGeoInfo.country);
     } catch (error) {
       return {
         error: true,
